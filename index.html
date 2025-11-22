@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F6F2E9" />
+  <title>Dearly Made</title>
+  <meta name="description" content="Discover personalised, affordable handmade gifts. Shop keychains, photo frames, scrapbooks, gift cards, bouquets, and custom gift packs crafted with love." />
+
+  <!-- Schema / SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Dearly Made",
+    "url": "https://dearlymade.example",
+    "logo": "https://via.placeholder.com/300x80?text=Dearly+Made",
+    "sameAs": ["https://instagram.com/DearlyMade"]
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Shared CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header id="mainHeader">
+    <div class="nav">
+      <div class="hamburger-btn" onclick="openMobileMenu()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </div>
+
+      <div class="logo">
+        <img src="img/logo.png" alt="Dearly Made logo" onerror="this.src='https://via.placeholder.com/44x44?text=DM'"/>
+        <div class="brand-title">
+          <div class="name">Dearly Made</div>
+        </div>
+      </div>
+
+      <nav class="menu">
+        <a href="home.html#home">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="home.html#about">About</a>
+        <a href="home.html#contact">Contact</a>
+      </nav>
+
+      <div class="tools">
+        <div class="search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="opacity:0.7;margin-right:8px">
+            <path d="M21 21l-4.35-4.35" stroke="#6B5B5B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle cx="11" cy="11" r="6" stroke="#6B5B5B" stroke-width="1.6"></circle>
+          </svg>
+          <input id="searchInput" placeholder="Search gifts..." aria-label="Search gifts" />
+        </div>
+        <div class="icon-btn" id="wishlistBtn" title="Wishlist">💖</div>
+        <div class="icon-btn" id="cartBtn" title="Cart">🧺 <span id="cartCount" style="margin-left:6px;font-weight:700">0</span></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="hero-card">
+        <h1>✨ Handmade Gifts Crafted With Love</h1>
+        <p class="lead">
+          Every gift tells a story — let’s create yours. At Dearly Made, we specialise in personalised,
+          budget-friendly handmade gifts designed to make every moment meaningful.
+        </p>
+        <div class="cta-row">
+          <button class="btn btn-primary" onclick="goToShopPage()">Explore Gifts</button>
+          <button class="btn btn-outline" onclick="openBuilder()">Build Your Pack</button>
+        </div>
+        <p class="cta-sub">Free personalised message card • Fast delivery across India</p>
+
+        <div class="why" style="margin-top:24px">
+          <div class="card">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 21s-7-4.35-9-7.55C1.63 10 4.28 6 8.61 6c2.12 0 3.33 1.11 3.39 1.18.06-.07 1.26-1.18 3.39-1.18 4.33 0 6.98 4 5.61 7.45C19 16.65 12 21 12 21z" fill="#A0766E"/>
+            </svg>
+            <div>
+              <strong>Handmade</strong>
+              <div class="muted">Crafted individually</div>
+            </div>
+          </div>
+          <div class="card">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2l2 4 4 .6-2.6 2.6L17 14l-5-2.6L7 14l1.6-4.8L6 7.6 10 7 12 2z" fill="#C08E8E"/>
+            </svg>
+            <div>
+              <strong>Custom</strong>
+              <div class="muted">Names & Photos</div>
+            </div>
+          </div>
+          <div class="card">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 21s-7-4.35-9-7.55C1.63 10 4.28 6 8.61 6c2.12 0 3.33 1.11 3.39 1.18.06-.07 1.26-1.18 3.39-1.18 4.33 0 6.98 4 5.61 7.45C19 16.65 12 21 12 21z" fill="#D9C8F5"/>
+            </svg>
+            <div>
+              <strong>Affordable</strong>
+              <div class="muted">Pocket friendly</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-visual">
+        <div class="gift-box">
+          <img src="img/unbox.png" alt="Pastel wrapped gift box with ribbon" onerror="this.src='https://via.placeholder.com/300x220?text=Gift+Box'"/>
+        </div>
+        <div style="text-align:center">
+          <div class="muted">Build a hamper, ship with love.</div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section class="categories" aria-label="Featured categories">
+      <div class="cat">
+        <img src="img/keychain.png" alt="Keychains category" onerror="this.src='https://via.placeholder.com/82'"/>
+        <div class="title">Keychains</div>
+      </div>
+      <div class="cat">
+        <img src="img/booklet.png" alt="Memory books" onerror="this.src='https://via.placeholder.com/82'"/>
+        <div class="title">Books</div>
+      </div>
+      <div class="cat">
+        <img src="img/gift card.png" alt="Photo frames" onerror="this.src='https://via.placeholder.com/82'"/>
+        <div class="title">Frames</div>
+      </div>
+      <div class="cat">
+        <img src="img/card 1.png" alt="Gift cards" onerror="this.src='https://via.placeholder.com/82'"/>
+        <div class="title">Cards</div>
+      </div>
+      <div class="cat">
+        <img src="img/Bouquet.png" alt="Bouquets" onerror="this.src='https://via.placeholder.com/82'"/>
+        <div class="title">Bouquets</div>
+      </div>
+      <div class="cat">
+        <img src="img/massive combo.png" alt="Gift packs" onerror="this.src='https://via.placeholder.com/82'"/>
+        <div class="title">Combos</div>
+      </div>
+    </section>
+
+    <!-- HOME BESTSELLERS (teaser) -->
+    <section id="shop" class="section">
+      <h3>Bestsellers</h3>
+      <p class="muted">Discover the gifts our customers love the most.</p>
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+        <div style="text-align:center;">
+      <button class="btn btn-primary" onclick="goToShopPage()">Explore Gifts</button>
+    </div>
+
+    <!-- WHY CHOOSE SECTION -->
+    <section id="about" class="section">
+      <h3>Why Choose Dearly Made?</h3>
+      <div class="why" style="margin-top:12px">
+        <div class="card">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 21s-7-4.35-9-7.55C1.63 10 4.28 6 8.61 6c2.12 0 3.33 1.11 3.39 1.18.06-.07 1.26-1.18 3.39-1.18 4.33 0 6.98 4 5.61 7.45C19 16.65 12 21 12 21z" fill="#A0766E"/>
+          </svg>
+          <div>
+            <strong>Handmade With Love</strong>
+            <div class="muted">Every item handcrafted and quality-checked</div>
+          </div>
+        </div>
+        <div class="card">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2l2 4 4 .6-2.6 2.6L17 14l-5-2.6L7 14l1.6-4.8L6 7.6 10 7 12 2z" fill="#C08E8E"/>
+          </svg>
+          <div>
+            <strong>Customisable</strong>
+            <div class="muted">Names, photos, colours — made to order</div>
+          </div>
+        </div>
+        <div class="card">
+          <svg viewBox="0 0 24 24">
+            <path d="M21 12v7a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-7" stroke="#D9C8F5" stroke-width="1.5" fill="none"/>
+          </svg>
+          <div>
+            <strong>Fast Delivery</strong>
+            <div class="muted">Secure packaging & safe shipping</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- REVIEWS -->
+    <section class="section">
+      <h3>Reviews & Happy Moments</h3>
+      <div class="testimonials">
+        <div class="testi">
+          <div style="display:flex;gap:12px;align-items:center">
+            <img src="img/persona/Aishu.png" alt="Aishwarya" onerror="this.src='https://via.placeholder.com/56'"/>
+            <div>
+              <strong>Aishwarya R.</strong>
+              <div class="muted">⭐⭐⭐⭐⭐</div>
+            </div>
+          </div>
+          <p style="margin-top:10px">“Absolutely loved the scrapbook! The detailing was perfect.”</p>
+        </div>
+        <div class="testi">
+          <div style="display:flex;gap:12px;align-items:center">
+            <img src="img/persona/dinesh.jpg" alt="Dinesh" onerror="this.src='https://via.placeholder.com/56'"/>
+            <div>
+              <strong>Dinesh Kumar</strong>
+              <div class="muted">⭐⭐⭐⭐⭐</div>
+            </div>
+          </div>
+          <p style="margin-top:10px">“The photo keychain was adorable! Packaging was too cute.”</p>
+        </div>
+        <div class="testi">
+          <div style="display:flex;gap:12px;align-items:center">
+            <img src="img/persona/janvi.png" alt="Jhanvi" onerror="this.src='https://via.placeholder.com/56'"/>
+            <div>
+              <strong>Jhanvi M.</strong>
+              <div class="muted">⭐⭐⭐⭐⭐</div>
+            </div>
+          </div>
+          <p style="margin-top:10px">“The custom gift pack was the best decision ever!”</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSTAGRAM EMBED -->
+    <section class="section">
+      <h3>Follow Us for Gift Ideas</h3>
+      <div class="insta-container">
+        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DRCGFoSE1iS/" style="background:#fff; border:0; margin: 10px; max-width:300px; min-width:250px; padding:0;"></blockquote>
+        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DRCHgx-k1zx/?img_index=1" style="background:#fff; border:0; margin: 10px; max-width:300px; min-width:250px; padding:0;"></blockquote>
+        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DRB2GhOER30/" style="background:#fff; border:0; margin: 10px; max-width:300px; min-width:250px; padding:0;"></blockquote>
+      </div>
+    </section>
+
+    <!-- CONTACT / EMAIL -->
+    <section id="contact" class="section" style="text-align:center;margin-top:30px">
+      <h3>Join Our Gift Family</h3>
+      <p class="muted">Get cute ideas, discounts, and behind-the-scenes in your inbox.</p>
+      <div style="display:flex;gap:8px;justify-content:center;margin-top:12px; flex-wrap:wrap;">
+        <input id="emailJoin" placeholder="Your email address" style="padding:10px 14px;border-radius:999px;border:1px solid #E8DCE9;min-width:300px" />
+        <button class="btn btn-primary" onclick="joinEmail()">Join</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- WHATSAPP FLOAT -->
+  <a class="whatsapp" href="https://wa.me/916381602251?text=Hi%20Dearly%20Made%20I%20want%20to%20order" target="_blank" aria-label="Chat on WhatsApp">💬 Chat</a>
+
+  <!-- PRODUCT MODAL -->
+  <div class="modal" id="productModal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true">
+      <div class="gallery">
+        <img id="modalImg" src="https://via.placeholder.com/600x400?text=Product" alt="Product image" />
+      </div>
+      <div class="product-info">
+        <h2 id="modalTitle">Product Title</h2>
+        <p id="modalPrice" style="font-weight:800;color:var(--warm-brown)">₹299</p>
+        <p id="modalDesc" class="muted">Short emotional intro to the product and what makes it special.</p>
+
+        <div class="customize">
+          <h4 style="margin:0 0 8px 0">Personalize your gift</h4>
+          <div class="field">
+            <label style="min-width:80px">Name</label>
+            <input id="custName" type="text" placeholder="Enter name (optional)"/>
+          </div>
+          <div class="field">
+            <label style="min-width:80px">Message</label>
+            <textarea id="custMsg" rows="3" placeholder="Write a short message"></textarea>
+          </div>
+          <div class="field">
+            <label style="min-width:80px">Color</label>
+            <select id="custColor">
+              <option value="pastel-pink">Pastel Pink</option>
+              <option value="lavender">Lavender</option>
+              <option value="powder-blue">Powder Blue</option>
+            </select>
+          </div>
+          <div class="field">
+            <label style="min-width:80px">Photo</label>
+            <input id="custPhoto" type="file" accept="image/*"/>
+          </div>
+          <div class="field">
+            <label style="min-width:80px"></label>
+            <div class="addon">
+              <input type="checkbox" id="wrapOpt"/> <small>gift wrap (₹49)</small>
+            </div>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:12px">
+            <button class="btn btn-primary" id="addToCartBtn">Add to Cart</button>
+            <button class="btn btn-outline" onclick="closeModal()">Cancel</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- MOBILE NAV DRAWER -->
+  <div class="modal drawer left" id="mobileNavDrawer" aria-hidden="true">
+    <div class="drawer-panel" role="dialog" aria-modal="true">
+      <header style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px; padding-bottom:8px; border-bottom:1px solid #eee;">
+        <h3 style="margin:0">Menu</h3>
+        <button class="btn btn-outline close-x-btn" onclick="closeMobileMenu()">✕</button>
+      </header>
+      <div class="mobile-links">
+        <a href="home.html#home" onclick="closeMobileMenu()">Home</a>
+        <a href="shop.html" onclick="closeMobileMenu()">Shop</a>
+        <a href="home.html#about" onclick="closeMobileMenu()">About</a>
+        <a href="home.html#contact" onclick="closeMobileMenu()">Contact</a>
+        <br>
+        <a href="#" onclick="alert('Coming soon'); closeMobileMenu()">Track Order</a>
+        <a href="#" onclick="alert('Coming soon'); closeMobileMenu()">Login / Sign up</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CART DRAWER -->
+  <div class="modal drawer" id="cartModal" aria-hidden="true">
+    <div class="drawer-panel" role="dialog" aria-modal="true">
+      <header style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px; flex-shrink: 0;">
+        <h3 style="margin:0">Your Cart (<span id="cartTotalCount">0</span>)</h3>
+        <button class="btn btn-outline close-x-btn" onclick="closeCart()">✕</button>
+      </header>
+      <div id="cartList"></div>
+      <div class="drawer-footer">
+        <div id="cartSummary" style="text-align:right;font-weight:800; margin-bottom: 10px;">Total: ₹0</div>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+          <button class="btn btn-outline" id="clearCartBtn" style="width:100%; justify-content: center;">Clear Cart</button>
+          <button class="btn btn-primary" id="checkoutBtn" style="width:100%; justify-content: center;">Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WISHLIST DRAWER -->
+  <div class="modal drawer" id="wishModal" aria-hidden="true">
+    <div class="drawer-panel" role="dialog" aria-modal="true">
+      <header style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px; flex-shrink: 0;">
+        <h3 style="margin:0">Your Wishlist (<span id="wishTotalCount">0</span>)</h3>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-outline close-x-btn" onclick="closeWish()">✕</button>
+        </div>
+      </header>
+      <div id="wishList"></div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script async src="//www.instagram.com/embed.js"></script>
+  <script src="script.js"></script>
+  <br>
+  <br>
+  <br>
+</body>
+</html>

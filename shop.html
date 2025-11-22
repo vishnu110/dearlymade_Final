@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F6F2E9" />
+  <title>Dearly Made | Shop</title>
+  <meta name="description" content="Browse all Dearly Made handmade gifts – keychains, memory books, frames, cards, bouquets and custom combos." />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Shared CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header id="mainHeader">
+    <div class="nav">
+      <div class="hamburger-btn" onclick="openMobileMenu()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </div>
+
+      <div class="logo">
+        <img src="img/logo.png" alt="Dearly Made logo" onerror="this.src='https://via.placeholder.com/44x44?text=DM'"/>
+        <div class="brand-title">
+          <div class="name">Dearly Made</div>
+        </div>
+      </div>
+
+      <nav class="menu">
+        <a href="home.html#home">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="home.html#about">About</a>
+        <a href="home.html#contact">Contact</a>
+      </nav>
+
+      <div class="tools">
+        <div class="search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="opacity:0.7;margin-right:8px">
+            <path d="M21 21l-4.35-4.35" stroke="#6B5B5B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle cx="11" cy="11" r="6" stroke="#6B5B5B" stroke-width="1.6"></circle>
+          </svg>
+          <input id="searchInput" placeholder="Search gifts..." aria-label="Search gifts" />
+        </div>
+        <div class="icon-btn" id="wishlistBtn" title="Wishlist">💖</div>
+        <div class="icon-btn" id="cartBtn" title="Cart">🧺 <span id="cartCount" style="margin-left:6px;font-weight:700">0</span></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <section class="section" id="shop">
+      <h3>All Gifts</h3>
+      <p class="muted">Browse the full directory of Dearly Made gifts. Use the search above to quickly find what you need.</p>
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+  </main>
+
+  <!-- WHATSAPP FLOAT -->
+  <a class="whatsapp" href="https://wa.me/916381602251?text=Hi%20Dearly%20Made%20I%20want%20to%20order" target="_blank" aria-label="Chat on WhatsApp">💬 Chat</a>
+
+  <!-- PRODUCT MODAL -->
+  <div class="modal" id="productModal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true">
+      <div class="gallery">
+        <img id="modalImg" src="https://via.placeholder.com/600x400?text=Product" alt="Product image" />
+      </div>
+      <div class="product-info">
+        <h2 id="modalTitle">Product Title</h2>
+        <p id="modalPrice" style="font-weight:800;color:var(--warm-brown)">₹299</p>
+        <p id="modalDesc" class="muted">Short emotional intro to the product and what makes it special.</p>
+
+        <div class="customize">
+          <h4 style="margin:0 0 8px 0">Personalize your gift</h4>
+          <div class="field">
+            <label style="min-width:80px">Name</label>
+            <input id="custName" type="text" placeholder="Enter name (optional)"/>
+          </div>
+          <div class="field">
+            <label style="min-width:80px">Message</label>
+            <textarea id="custMsg" rows="3" placeholder="Write a short message"></textarea>
+          </div>
+          <div class="field">
+            <label style="min-width:80px">Color</label>
+            <select id="custColor">
+              <option value="pastel-pink">Pastel Pink</option>
+              <option value="lavender">Lavender</option>
+              <option value="powder-blue">Powder Blue</option>
+            </select>
+          </div>
+          <div class="field">
+            <label style="min-width:80px">Photo</label>
+            <input id="custPhoto" type="file" accept="image/*"/>
+          </div>
+          <div class="field">
+            <label style="min-width:80px"></label>
+            <div class="addon">
+              <input type="checkbox" id="wrapOpt"/> <small>gift wrap (₹49)</small>
+            </div>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:12px">
+            <button class="btn btn-primary" id="addToCartBtn">Add to Cart</button>
+            <button class="btn btn-outline" onclick="closeModal()">Cancel</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- MOBILE NAV DRAWER -->
+  <div class="modal drawer left" id="mobileNavDrawer" aria-hidden="true">
+    <div class="drawer-panel" role="dialog" aria-modal="true">
+      <header style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px; padding-bottom:8px; border-bottom:1px solid #eee;">
+        <h3 style="margin:0">Menu</h3>
+        <button class="btn btn-outline close-x-btn" onclick="closeMobileMenu()">✕</button>
+      </header>
+      <div class="mobile-links">
+        <a href="home.html#home" onclick="closeMobileMenu()">Home</a>
+        <a href="shop.html" onclick="closeMobileMenu()">Shop</a>
+        <a href="home.html#about" onclick="closeMobileMenu()">About</a>
+        <a href="home.html#contact" onclick="closeMobileMenu()">Contact</a>
+        <br>
+        <a href="#" onclick="alert('Coming soon'); closeMobileMenu()">Track Order</a>
+        <a href="#" onclick="alert('Coming soon'); closeMobileMenu()">Login / Sign up</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CART DRAWER -->
+  <div class="modal drawer" id="cartModal" aria-hidden="true">
+    <div class="drawer-panel" role="dialog" aria-modal="true">
+      <header style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px; flex-shrink: 0;">
+        <h3 style="margin:0">Your Cart (<span id="cartTotalCount">0</span>)</h3>
+        <button class="btn btn-outline close-x-btn" onclick="closeCart()">✕</button>
+      </header>
+      <div id="cartList"></div>
+      <div class="drawer-footer">
+        <div id="cartSummary" style="text-align:right;font-weight:800; margin-bottom: 10px;">Total: ₹0</div>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+          <button class="btn btn-outline" id="clearCartBtn" style="width:100%; justify-content: center;">Clear Cart</button>
+          <button class="btn btn-primary" id="checkoutBtn" style="width:100%; justify-content: center;">Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WISHLIST DRAWER -->
+  <div class="modal drawer" id="wishModal" aria-hidden="true">
+    <div class="drawer-panel" role="dialog" aria-modal="true">
+      <header style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px; flex-shrink: 0;">
+        <h3 style="margin:0">Your Wishlist (<span id="wishTotalCount">0</span>)</h3>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-outline close-x-btn" onclick="closeWish()">✕</button>
+        </div>
+      </header>
+      <div id="wishList"></div>
+    </div>
+  </div>
+
+  <!-- SHARED JS -->
+  <script src="script.js"></script>
+  <br>
+  <br>
+  <br>
+</body>
+</html>
